@@ -1,0 +1,340 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-gray-900 bg-white antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-gray-900 font-bold;
+  }
+}
+
+@layer components {
+  .highlight-green {
+    @apply bg-shopify-fluo px-2 py-1 rounded;
+    position: relative;
+    padding-top: 0;
+  }
+  
+  .highlight-green::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: inherit;
+    border-radius: inherit;
+    z-index: -1;
+  }
+  
+  .highlight-green > * {
+    position: relative;
+    z-index: 10;
+    color: #000000;
+  }
+  
+  .text-over-highlight {
+    position: relative;
+    z-index: 20;
+  }
+  
+  .section-dark {
+    @apply bg-black text-white;
+  }
+  
+  .section-dark h1,
+  .section-dark h2,
+  .section-dark h3,
+  .section-dark h4,
+  .section-dark h5,
+  .section-dark h6 {
+    @apply text-white;
+  }
+
+  /* Article Content Styles */
+  .article-content h2 {
+    @apply text-2xl font-bold text-gray-900 mt-12 mb-6 scroll-mt-28;
+  }
+  
+  .article-content h3 {
+    @apply text-xl font-bold text-gray-900 mt-8 mb-4;
+  }
+  
+  .article-content p {
+    @apply text-gray-600 leading-relaxed mb-4;
+  }
+  
+  .article-content ul, .article-content ol {
+    @apply text-gray-600 mb-6 ml-6;
+  }
+  
+  .article-content ul {
+    @apply list-disc;
+  }
+  
+  .article-content ol {
+    @apply list-decimal;
+  }
+  
+  .article-content li {
+    @apply mb-2;
+  }
+  
+  .article-content strong {
+    @apply text-gray-900 font-semibold;
+  }
+  
+  .article-content code {
+    @apply bg-gray-100 text-gray-800 px-2 py-0.5 rounded text-sm font-mono;
+  }
+
+  /* Promo Box - Shopify Style */
+  .article-content .promo-box {
+    @apply bg-gradient-to-r from-skyaksa/5 to-shopify-fluo/5 border border-skyaksa/20 rounded-2xl p-6 my-8 flex gap-4;
+  }
+  
+  .article-content .promo-box.accent {
+    @apply from-shopify-fluo/10 to-skyaksa/5 border-shopify-fluo/30;
+  }
+  
+  .article-content .promo-box .promo-icon {
+    @apply text-3xl flex-shrink-0;
+  }
+  
+  .article-content .promo-box .promo-content h4 {
+    @apply text-lg font-bold text-gray-900 mb-2 mt-0;
+  }
+  
+  .article-content .promo-box .promo-content p {
+    @apply text-gray-600 text-sm mb-3;
+  }
+  
+  .article-content .promo-box .promo-link {
+    @apply text-skyaksa font-semibold text-sm hover:text-skyaksa-700 transition-colors;
+  }
+
+  /* Warning Box */
+  .article-content .warning-box {
+    @apply bg-amber-50 border border-amber-200 rounded-2xl p-6 my-8 flex gap-4;
+  }
+  
+  .article-content .warning-box .warning-icon {
+    @apply text-2xl flex-shrink-0;
+  }
+  
+  .article-content .warning-box .warning-content h4 {
+    @apply text-lg font-bold text-amber-900 mb-2 mt-0;
+  }
+  
+  .article-content .warning-box .warning-content p {
+    @apply text-amber-800 text-sm mb-0;
+  }
+
+  /* Example Boxes */
+  .article-content .example-box {
+    @apply rounded-xl p-4 my-4 font-mono text-sm;
+  }
+  
+  .article-content .example-box.good {
+    @apply bg-green-50 border border-green-200;
+  }
+  
+  .article-content .example-box.bad {
+    @apply bg-red-50 border border-red-200;
+  }
+  
+  .article-content .example-box .example-label {
+    @apply text-xs font-semibold mb-2 font-sans;
+  }
+  
+  .article-content .example-box.good .example-label {
+    @apply text-green-700;
+  }
+  
+  .article-content .example-box.bad .example-label {
+    @apply text-red-700;
+  }
+  
+  .article-content .example-box code {
+    @apply bg-transparent p-0 text-gray-800;
+  }
+
+  /* Metrics Grid */
+  .article-content .metrics-grid {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-4 my-8;
+  }
+  
+  .article-content .metric-card {
+    @apply bg-gray-50 border border-gray-200 rounded-xl p-5 text-center;
+  }
+  
+  .article-content .metric-card.good {
+    @apply bg-green-50 border-green-200;
+  }
+  
+  .article-content .metric-card.accent {
+    @apply bg-skyaksa/10 border-skyaksa/30;
+  }
+  
+  .article-content .metric-card .metric-name {
+    @apply text-xs font-bold text-gray-500 uppercase tracking-wider mb-1;
+  }
+  
+  .article-content .metric-card .metric-value {
+    @apply text-2xl font-bold text-gray-900;
+  }
+  
+  .article-content .metric-card .metric-desc {
+    @apply text-xs text-gray-500 mt-1;
+  }
+
+  /* Checklist */
+  .article-content .checklist-section {
+    @apply bg-gray-50 border border-gray-200 rounded-xl p-6 my-6;
+  }
+  
+  .article-content .checklist-section h4 {
+    @apply text-lg font-bold text-gray-900 mb-4 mt-0;
+  }
+  
+  .article-content .checklist {
+    @apply list-none ml-0;
+  }
+  
+  .article-content .checklist li {
+    @apply flex items-start gap-3 mb-2;
+  }
+  
+  .article-content .checklist li::before {
+    content: '☐';
+    @apply text-skyaksa font-bold;
+  }
+}
+
+@layer utilities {
+  /* Float animations for CTA images - subtle vertical movement */
+  @keyframes float-slow {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  @keyframes float-medium {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes float-fast {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+
+  .animate-float-slow {
+    animation: float-slow 4s ease-in-out infinite;
+  }
+
+  .animate-float-medium {
+    animation: float-medium 3.5s ease-in-out infinite;
+    animation-delay: 0.5s;
+  }
+
+  .animate-float-fast {
+    animation: float-fast 3s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+
+  /* Scroll animations - CSS only, SEO safe */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Base state - hidden (only if JS is enabled and motion is preferred) */
+  .animate-on-scroll {
+    opacity: 0;
+  }
+
+  /* SEO & Accessibility: Content visible if JS disabled */
+  .no-js .animate-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  /* Accessibility: Disable animations for users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-on-scroll {
+      opacity: 1 !important;
+      transform: none !important;
+      animation: none !important;
+    }
+  }
+
+  /* Animated state (only if motion is preferred) */
+  @media (prefers-reduced-motion: no-preference) {
+    .animate-on-scroll.is-visible {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    .animate-on-scroll.fade-only.is-visible {
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+
+    .animate-on-scroll.scale.is-visible {
+      animation: scaleIn 0.5s ease-out forwards;
+    }
+  }
+
+  /* Stagger delays for children */
+  .stagger-children > .animate-on-scroll:nth-child(1) { animation-delay: 0ms; }
+  .stagger-children > .animate-on-scroll:nth-child(2) { animation-delay: 100ms; }
+  .stagger-children > .animate-on-scroll:nth-child(3) { animation-delay: 200ms; }
+  .stagger-children > .animate-on-scroll:nth-child(4) { animation-delay: 300ms; }
+  .stagger-children > .animate-on-scroll:nth-child(5) { animation-delay: 400ms; }
+  .stagger-children > .animate-on-scroll:nth-child(6) { animation-delay: 500ms; }
+
+  /* Specific delays */
+  .delay-100 { animation-delay: 100ms !important; }
+  .delay-200 { animation-delay: 200ms !important; }
+  .delay-300 { animation-delay: 300ms !important; }
+  .delay-400 { animation-delay: 400ms !important; }
+}
+
