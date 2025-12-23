@@ -41,7 +41,7 @@ export default function Hero() {
             <div className="flex items-center gap-8 pt-8 border-t border-gray-200">
               <div>
                 <div className="text-3xl font-bold text-skyaksa">3+</div>
-                <div className="text-sm text-gray-600">Ans d'expertise</div>
+                <div className="text-sm text-gray-600">Ans d&apos;expertise</div>
               </div>
               <div>
                 <div className="text-3xl font-bold text-skyaksa">Shopify</div>

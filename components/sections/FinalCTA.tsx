@@ -16,7 +16,7 @@ export default function FinalCTA() {
           
           <p className="text-xl text-gray-300 leading-relaxed mb-10 animate-on-scroll delay-100">
             Discutons de votre projet. Que vous ayez une idée précise ou que vous cherchiez 
-            de l'inspiration, on construit ensemble une boutique qui vous ressemble.
+            de l&apos;inspiration, on construit ensemble une boutique qui vous ressemble.
           </p>
           
           <div className="flex items-center justify-center gap-4 flex-wrap animate-on-scroll delay-200">

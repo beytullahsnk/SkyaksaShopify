@@ -227,7 +227,7 @@ export default function Contact() {
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-skyaksa focus:border-transparent transition-all text-gray-900 bg-white"
                     >
                       <option value="">Sélectionnez une option</option>
-                      <option value="yes">Oui, j'ai déjà un site</option>
+                      <option value="yes">Oui, j&apos;ai déjà un site</option>
                       <option value="no">Non, pas encore</option>
                       <option value="in-progress">En cours de création</option>
                     </select>
@@ -306,7 +306,7 @@ export default function Contact() {
                   </button>
 
                   <p className="text-xs text-gray-400 text-center">
-                    En soumettant ce formulaire, vous acceptez d'être contacté par Skyaksa concernant votre projet.
+                    En soumettant ce formulaire, vous acceptez d&apos;être contacté par Skyaksa concernant votre projet.
                   </p>
                 </form>
               )}
@@ -359,7 +359,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900">Experts Shopify</h3>
-                    <p className="text-sm text-gray-600">Une équipe spécialisée exclusivement sur l'écosystème Shopify.</p>
+                    <p className="text-sm text-gray-600">Une équipe spécialisée exclusivement sur l&apos;écosystème Shopify.</p>
                   </div>
                 </div>
               </div>
@@ -411,7 +411,7 @@ export default function Contact() {
                 </svg>
               </summary>
               <div className="px-6 pb-6 text-gray-600">
-                Après notre premier échange, nous analysons votre projet et vous proposons une stratégie sur mesure. Une fois validée, nous passons au développement avec des points réguliers pour vous tenir informé de l'avancement.
+                Après notre premier échange, nous analysons votre projet et vous proposons une stratégie sur mesure. Une fois validée, nous passons au développement avec des points réguliers pour vous tenir informé de l&apos;avancement.
               </div>
             </details>
 
@@ -423,7 +423,7 @@ export default function Contact() {
                 </svg>
               </summary>
               <div className="px-6 pb-6 text-gray-600">
-                Oui, nous sommes spécialisés exclusivement sur Shopify. Cette expertise nous permet de maîtriser parfaitement la plateforme et d'offrir des résultats optimaux à nos clients.
+                Oui, nous sommes spécialisés exclusivement sur Shopify. Cette expertise nous permet de maîtriser parfaitement la plateforme et d&apos;offrir des résultats optimaux à nos clients.
               </div>
             </details>
 
@@ -435,7 +435,7 @@ export default function Contact() {
                 </svg>
               </summary>
               <div className="px-6 pb-6 text-gray-600">
-                Absolument. Nous proposons un accompagnement continu avec des services de maintenance, d'optimisation et de formation pour vous rendre autonome sur votre boutique.
+                Absolument. Nous proposons un accompagnement continu avec des services de maintenance, d&apos;optimisation et de formation pour vous rendre autonome sur votre boutique.
               </div>
             </details>
 

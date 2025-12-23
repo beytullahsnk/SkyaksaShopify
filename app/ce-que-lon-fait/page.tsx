@@ -78,7 +78,7 @@ export default function CeQueLonFait() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 animate-on-scroll">
-              Ce que l'on fait
+              Ce que l&apos;on fait
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed animate-on-scroll delay-100">
               Expertise Shopify complète pour votre projet e-commerce

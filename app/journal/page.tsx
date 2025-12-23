@@ -91,7 +91,7 @@ export default function Journal() {
               Journal
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed animate-on-scroll delay-100">
-              Analyses, guides et retours d'expérience pour faire performer votre boutique Shopify.
+              Analyses, guides et retours d&apos;expérience pour faire performer votre boutique Shopify.
             </p>
           </div>
         </div>
@@ -159,12 +159,12 @@ export default function Journal() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl lg:text-5xl font-bold mb-8 !leading-[1.3]">
-              Vous voulez qu'on regarde{' '}
+              Vous voulez qu&apos;on regarde{' '}
               <span className="highlight-green"><span>votre boutique</span></span> ?
             </h2>
             
             <p className="text-xl text-gray-300 leading-relaxed mb-10">
-              Discutons de votre projet et identifions ensemble les opportunités d'amélioration pour votre e-commerce.
+              Discutons de votre projet et identifions ensemble les opportunités d&apos;amélioration pour votre e-commerce.
             </p>
             
             <div className="flex items-center justify-center gap-4 flex-wrap">

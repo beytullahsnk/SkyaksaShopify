@@ -1056,7 +1056,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
             Lancez votre boutique Shopify avec Skyaksa
           </h2>
           <p className="text-gray-600 mb-6 max-w-xl mx-auto">
-            Confiez-nous votre projet e-commerce et bénéficiez d'un accompagnement expert pour créer une boutique performante.
+            Confiez-nous votre projet e-commerce et bénéficiez d&apos;un accompagnement expert pour créer une boutique performante.
           </p>
           <div className="flex items-center justify-center gap-4 flex-wrap">
             <Link
@@ -1153,7 +1153,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
                   {/* Sticky CTA */}
                   <div className="mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200">
                     <p className="text-sm font-medium text-gray-900 mb-2">
-                      Besoin d'aide ?
+                      Besoin d&apos;aide ?
                     </p>
                     <p className="text-xs text-gray-600 mb-3">
                       Discutons de votre projet Shopify
@@ -1334,7 +1334,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
             Prêt à booster votre boutique Shopify ?
           </h2>
           <p className="text-lg text-gray-300 mb-8">
-            Discutons de votre projet et identifions ensemble les opportunités d'amélioration.
+            Discutons de votre projet et identifions ensemble les opportunités d&apos;amélioration.
           </p>
           <div className="flex items-center justify-center gap-4 flex-wrap">
             <Link

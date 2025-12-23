@@ -37,7 +37,7 @@ export default function Approach() {
           </div>
 
           <Button href="/ce-que-lon-fait" variant="primary">
-            Découvrir l'approche
+            Découvrir l&apos;approche
           </Button>
         </div>
       </div>
