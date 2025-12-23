@@ -26,7 +26,7 @@ yarn-error.log*
 .env*.local
 
 # data files (newsletter subscribers, contacts, etc.)
-/data/*.json
+# /data/*.json
 
 # vercel
 .vercel
