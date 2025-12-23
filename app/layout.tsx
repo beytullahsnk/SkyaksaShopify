@@ -11,6 +11,11 @@ export const metadata: Metadata = {
   title: 'Skyaksa — Agence Shopify orientée performance e-commerce',
   description: 'Nous accompagnons chaque projet de la conception à la croissance. Création, optimisation et accompagnement de boutiques Shopify.',
   keywords: 'agence Shopify, e-commerce, boutique en ligne, optimisation conversion, performance e-commerce',
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
+  },
   openGraph: {
     title: 'Skyaksa — Agence Shopify orientée performance e-commerce',
     description: 'Nous accompagnons chaque projet de la conception à la croissance. Création, optimisation et accompagnement de boutiques Shopify.',
