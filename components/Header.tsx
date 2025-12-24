@@ -15,7 +15,7 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-gray-200">
-      <nav className="mx-auto max-w-7xl px-6 lg:px-8" aria-label="Navigation principale">
+      <nav className="mx-auto max-w-7xl px-6 lg:px-8" aria-label="Navigation principale" role="navigation">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <div className="flex lg:flex-1">
@@ -23,6 +23,7 @@ export default function Header() {
               <Image
                 src="/logo-skyaksa.png"
                 alt="Skyaksa - Agence Shopify"
+                title="Skyaksa - Agence Shopify spécialisée en création de boutiques e-commerce"
                 width={40}
                 height={40}
                 className="w-10 h-10 object-contain"

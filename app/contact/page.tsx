@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import emailjs from '@emailjs/browser'
+import Breadcrumb from '@/components/Breadcrumb'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -72,7 +73,7 @@ export default function Contact() {
       })
     } catch (error) {
       console.error('Erreur:', error)
-      alert('Une erreur est survenue. Veuillez réessayer ou nous contacter directement à contact@skyaksa.com')
+      alert('Une erreur est survenue. Veuillez réessayer ou nous contacter directement à skyaksa.agency@gmail.com')
     } finally {
       setIsSubmitting(false)
     }
@@ -83,6 +84,15 @@ export default function Contact() {
       {/* Hero */}
       <section className="pt-28 pb-8 lg:pt-36 lg:pb-12 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          {/* Breadcrumb */}
+          <div className="mb-8">
+            <Breadcrumb
+              items={[
+                { name: 'Accueil', href: '/' },
+                { name: 'Contact', href: '/contact' },
+              ]}
+            />
+          </div>
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4 animate-on-scroll">
               Parlons de votre{' '}
@@ -319,6 +329,7 @@ export default function Contact() {
                 <Image
                   src="/contact-skyaksa-equipe-shopify.jpg"
                   alt="Contact Skyaksa - Équipe d'experts Shopify spécialisés en création de boutiques e-commerce"
+                  title="Contact Skyaksa - Équipe d'experts Shopify spécialisés en création de boutiques e-commerce"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -369,16 +380,16 @@ export default function Contact() {
                 <h3 className="font-semibold mb-4 text-white">Autres moyens de contact</h3>
                 <div className="space-y-3">
                   <a 
-                    href="mailto:contact@skyaksa.com" 
+                    href="mailto:skyaksa.agency@gmail.com" 
                     className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors"
                   >
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
-                    contact@skyaksa.com
+                    skyaksa.agency@gmail.com
                   </a>
                   <a 
-                    href="https://linkedin.com/company/skyaksa" 
+                    href="https://www.linkedin.com/company/skyaksa/" 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors"

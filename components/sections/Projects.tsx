@@ -24,12 +24,12 @@ export default function Projects() {
   ]
 
   return (
-    <section className="section-dark py-24 lg:py-32">
+    <section className="section-dark py-24 lg:py-32" aria-labelledby="projects-heading">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
         <div className="mb-16">
-          <h2 className="text-5xl lg:text-6xl font-bold mb-6 !leading-[1.2] animate-on-scroll">
-            <span className="highlight-green text-black">BOUTIQUES</span> E-COMMERCE
+          <h2 id="projects-heading" className="text-5xl lg:text-6xl font-bold mb-6 !leading-[1.2] animate-on-scroll">
+            <span className="highlight-green text-black"><span>BOUTIQUES</span></span> E-COMMERCE
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl animate-on-scroll delay-100">
             Projets Shopify réalisés. Design unique, expérience optimisée, boutiques qui performent.
@@ -47,6 +47,7 @@ export default function Projects() {
               <Image 
                 src={project.image} 
                 alt={`${project.title} - ${project.category} - Boutique Shopify créée par Skyaksa, agence spécialisée e-commerce`}
+                title={`${project.title} - ${project.category} - Boutique Shopify créée par Skyaksa, agence spécialisée e-commerce`}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

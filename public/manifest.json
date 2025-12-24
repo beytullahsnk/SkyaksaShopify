@@ -1,0 +1,22 @@
+{
+  "name": "Skyaksa - Agence Shopify",
+  "short_name": "Skyaksa",
+  "description": "Agence Shopify spécialisée en création de boutiques e-commerce sur-mesure",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#7c3aed",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
+

@@ -20,7 +20,7 @@ export default function Problems() {
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 animate-on-scroll">
             Votre boutique Shopify ne{' '}
-            <span className="highlight-green">ressort pas</span> ?
+            <span className="highlight-green"><span>ressort pas</span></span> ?
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto animate-on-scroll delay-100">
             Templates génériques, design fade, expérience basique. Votre marque mérite mieux.

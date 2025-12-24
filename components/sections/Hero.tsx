@@ -1,6 +1,7 @@
 import Button from '@/components/ui/Button'
 import Badge from '@/components/ui/Badge'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Hero() {
   return (
@@ -19,13 +20,13 @@ export default function Hero() {
             </Badge>
             
             <h1 className="text-5xl lg:text-7xl font-bold tracking-tight text-gray-900 mb-6 leading-tight animate-on-scroll delay-100">
-              <span className="text-over-highlight">Boutiques Shopify</span>{' '}
-              <span className="highlight-green"><span>qui se démarquent</span></span>
+              <span className="text-over-highlight">Agence Shopify</span>{' '}
+              <span className="highlight-green"><span>qui fait la différence</span></span>
             </h1>
             
             <p className="text-xl text-gray-600 leading-relaxed mb-10 animate-on-scroll delay-200">
-              Création de boutiques e-commerce uniques sur Shopify. Design moderne, 
-              expérience optimisée, boutiques qui reflètent votre marque.
+              Création de boutiques Shopify sur-mesure. Design unique, 
+              expérience optimisée, performance e-commerce. Votre projet mérite une <Link href="/ce-que-lon-fait" className="text-skyaksa hover:underline font-semibold">agence experte</Link>.
             </p>
 
             <div className="flex items-center gap-4 mb-12 flex-wrap animate-on-scroll delay-300">
@@ -60,6 +61,7 @@ export default function Hero() {
               <Image 
                 src="/skyaksa-agence-shopify-ecommerce-hero.jpg" 
                 alt="Agence Shopify Skyaksa - Création de boutiques e-commerce sur-mesure et optimisation performance"
+                title="Agence Shopify Skyaksa - Création de boutiques e-commerce sur-mesure et optimisation performance"
                 fill
                 className="object-cover"
                 priority

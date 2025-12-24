@@ -1,4 +1,5 @@
 import Button from '@/components/ui/Button'
+import Link from 'next/link'
 
 export default function Approach() {
   const features = [
@@ -9,10 +10,10 @@ export default function Approach() {
   ]
 
   return (
-    <section id="approche" className="section-dark py-24 lg:py-32">
+    <section id="approche" className="section-dark py-24 lg:py-32" aria-labelledby="approach-heading">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-8 !leading-[1.3] animate-on-scroll">
+          <h2 id="approach-heading" className="text-4xl lg:text-5xl font-bold mb-8 !leading-[1.3] animate-on-scroll">
             NOUS CRÉONS DES{' '}
             <span className="highlight-green"><span>BOUTIQUES SHOPIFY</span></span>{' '}
             QUI REFLÈTENT VOTRE MARQUE
@@ -20,7 +21,7 @@ export default function Approach() {
           
           <p className="text-xl text-gray-300 leading-relaxed mb-12 animate-on-scroll delay-100">
             Skyaksa ne livre pas de templates génériques. Chaque boutique est pensée pour votre marque, 
-            votre univers, vos clients.
+            votre univers, vos clients. Découvrez notre <Link href="/ce-que-lon-fait" className="text-shopify-fluo hover:underline font-semibold">approche complète</Link>.
           </p>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 stagger-children">

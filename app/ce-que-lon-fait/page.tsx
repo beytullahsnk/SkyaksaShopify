@@ -1,8 +1,33 @@
 import type { Metadata } from 'next'
+import Breadcrumb from '@/components/Breadcrumb'
 
 export const metadata: Metadata = {
-  title: 'Ce que l\'on fait — Skyaksa Agence Shopify',
-  description: 'Expertise Shopify complète : Design UX/UI, Développement, Marketing, SEO et Accompagnement pour votre boutique e-commerce.',
+  title: 'Services Agence Shopify | Design, Développement & SEO',
+  description: 'Agence Shopify experte : création boutique sur-mesure, design UX/UI, développement Shopify, optimisation SEO et accompagnement e-commerce complet.',
+  alternates: {
+    canonical: '/ce-que-lon-fait',
+  },
+  openGraph: {
+    title: 'Services Agence Shopify | Design, Développement & SEO',
+    description: 'Agence Shopify experte : création boutique sur-mesure, design UX/UI, développement Shopify, optimisation SEO.',
+    url: 'https://skyaksa.fr/ce-que-lon-fait',
+    siteName: 'Skyaksa',
+    images: [
+      {
+        url: '/skyaksa-agence-shopify-ecommerce-hero.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Services Skyaksa - Agence Shopify',
+      },
+    ],
+    locale: 'fr_FR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Services Agence Shopify | Design, Développement & SEO',
+    description: 'Agence Shopify experte : création boutique sur-mesure, design UX/UI, développement Shopify.',
+  },
 }
 
 export default function CeQueLonFait() {
@@ -76,12 +101,21 @@ export default function CeQueLonFait() {
       {/* Hero */}
       <section className="pt-32 pb-24 lg:pt-40 lg:pb-32 bg-gradient-hero">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          {/* Breadcrumb */}
+          <div className="mb-8">
+            <Breadcrumb
+              items={[
+                { name: 'Accueil', href: '/' },
+                { name: 'Ce que l\'on fait', href: '/ce-que-lon-fait' },
+              ]}
+            />
+          </div>
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 animate-on-scroll">
-              Ce que l&apos;on fait
+              Services Agence Shopify
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed animate-on-scroll delay-100">
-              Expertise Shopify complète pour votre projet e-commerce
+              Expertise Shopify complète : création, développement et optimisation e-commerce
             </p>
           </div>
         </div>

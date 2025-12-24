@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
+import Breadcrumb from '@/components/Breadcrumb'
 
 export default function Journal() {
   const [activeCategory, setActiveCategory] = useState('Tous')
@@ -86,12 +87,21 @@ export default function Journal() {
       {/* Hero */}
       <section className="pt-32 pb-16 lg:pt-40 lg:pb-24 bg-gradient-hero">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          {/* Breadcrumb */}
+          <div className="mb-8">
+            <Breadcrumb
+              items={[
+                { name: 'Accueil', href: '/' },
+                { name: 'Journal', href: '/journal' },
+              ]}
+            />
+          </div>
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 animate-on-scroll">
-              Journal
+              Journal Agence Shopify
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed animate-on-scroll delay-100">
-              Analyses, guides et retours d&apos;expérience pour faire performer votre boutique Shopify.
+              Guides, analyses et conseils d&apos;experts Shopify pour optimiser votre boutique e-commerce. SEO, conversion, marketing et performance.
             </p>
           </div>
         </div>

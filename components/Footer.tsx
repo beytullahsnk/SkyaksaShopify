@@ -13,7 +13,7 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-white border-t border-gray-200">
+    <footer className="bg-white border-t border-gray-200" role="contentinfo">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-4">
           {/* Brand */}
@@ -22,6 +22,7 @@ export default function Footer() {
               <Image
                 src="/logo-skyaksa.png"
                 alt="Skyaksa - Agence Shopify"
+                title="Skyaksa - Agence Shopify spécialisée en création de boutiques e-commerce"
                 width={40}
                 height={40}
                 className="w-10 h-10 object-contain"
