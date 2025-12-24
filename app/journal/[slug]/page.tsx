@@ -1779,19 +1779,6 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
         />
       </div>
 
-      {/* Breadcrumb */}
-      <div className="pt-24 lg:pt-28 pb-4 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <Breadcrumb
-            items={[
-              { name: 'Accueil', href: '/' },
-              { name: 'Journal', href: '/journal' },
-              { name: article.title, href: `/journal/${params.slug}` },
-            ]}
-          />
-        </div>
-      </div>
-
       {/* CTA Banner - Shopify Style */}
       <section className="pb-8 lg:pb-12 bg-gray-50 relative overflow-hidden">
         {/* Decorative Images - Left Side */}
