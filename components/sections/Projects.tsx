@@ -9,6 +9,18 @@ export default function Projects() {
       description: 'Boutique de tapis de souris édition limitée. Design moderne, système de précommandes.',
       image: '/projets/mxr-mousepads-boutique-shopify-ecommerce.jpg',
     },
+    {
+      title: 'Michino',
+      category: 'Maroquinerie de luxe',
+      description: 'Boutique de sacs haut de gamme. Expérience premium, visuels travaillés, design élégant.',
+      image: '/projets/michino-maroquinerie-luxe-boutique-shopify.jpg',
+    },
+    {
+      title: 'Babanono',
+      category: 'Accessoires Bébé',
+      description: 'Attache tétine personnalisable. Configurateur sur-mesure, personnalisation en temps réel.',
+      image: '/projets/babanono-accessoires-bebe-boutique-shopify.jpg',
+    },
   ]
 
   return (
@@ -34,8 +46,12 @@ export default function Projects() {
               {/* Image de fond */}
               <Image 
                 src={project.image} 
-                alt={`${project.title} - ${project.category} - Boutique Shopify créée par Skyaksa, agence spécialisée e-commerce`}
-                title={`${project.title} - ${project.category} - Boutique Shopify créée par Skyaksa, agence spécialisée e-commerce`}
+                alt={project.title === 'Michino' || project.title === 'Babanono' 
+                  ? `${project.category} - Boutique Shopify créée par Skyaksa, agence spécialisée e-commerce`
+                  : `${project.title} - ${project.category} - Boutique Shopify créée par Skyaksa, agence spécialisée e-commerce`}
+                title={project.title === 'Michino' || project.title === 'Babanono'
+                  ? `${project.category} - Boutique Shopify créée par Skyaksa, agence spécialisée e-commerce`
+                  : `${project.title} - ${project.category} - Boutique Shopify créée par Skyaksa, agence spécialisée e-commerce`}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
