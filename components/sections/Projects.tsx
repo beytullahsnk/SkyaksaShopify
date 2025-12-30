@@ -9,18 +9,6 @@ export default function Projects() {
       description: 'Boutique de tapis de souris édition limitée. Design moderne, système de précommandes.',
       image: '/projets/mxr-mousepads-boutique-shopify-ecommerce.jpg',
     },
-    {
-      title: 'Michino',
-      category: 'Maroquinerie de luxe',
-      description: 'Boutique de sacs haut de gamme. Expérience premium, visuels travaillés, design élégant.',
-      image: '/projets/michino-maroquinerie-luxe-boutique-shopify.jpg',
-    },
-    {
-      title: 'Babanono',
-      category: 'Accessoires Bébé',
-      description: 'Attache tétine personnalisable. Configurateur sur-mesure, personnalisation en temps réel.',
-      image: '/projets/babanono-accessoires-bebe-boutique-shopify.jpg',
-    },
   ]
 
   return (
@@ -36,7 +24,7 @@ export default function Projects() {
           </p>
         </div>
 
-        {/* Grid 3 projets */}
+        {/* Grid projets */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch stagger-children">
           {projects.map((project) => (
             <div

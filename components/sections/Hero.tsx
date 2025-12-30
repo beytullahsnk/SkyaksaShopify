@@ -19,9 +19,10 @@ export default function Hero() {
               Agence Shopify spécialisée
             </Badge>
             
-            <h1 className="text-5xl lg:text-7xl font-bold tracking-tight text-gray-900 mb-6 leading-tight animate-on-scroll delay-100">
-              <span className="text-over-highlight">Agence Shopify</span>{' '}
-              <span className="highlight-green"><span>qui fait la différence</span></span>
+            <h1 className="text-4xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-6 leading-tight animate-on-scroll delay-100" style={{ lineHeight: '1.15' }}>
+              <span className="whitespace-nowrap">Agence <span className="highlight-green">Shopify</span></span>
+              <br />
+              qui fait la <span className="highlight-green">différence</span>
             </h1>
             
             <p className="text-xl text-gray-600 leading-relaxed mb-10 animate-on-scroll delay-200">
@@ -57,7 +58,7 @@ export default function Hero() {
 
           {/* Right: Image colorée */}
           <div className="relative animate-on-scroll scale delay-200">
-            <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl">
+            <div className="relative aspect-[4/5] lg:aspect-square rounded-3xl overflow-hidden shadow-2xl max-w-lg mx-auto lg:max-w-none">
               <Image 
                 src="/skyaksa-agence-shopify-ecommerce-hero.jpg" 
                 alt="Agence Shopify Skyaksa - Création de boutiques e-commerce sur-mesure et optimisation performance"

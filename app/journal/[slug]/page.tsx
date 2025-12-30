@@ -1780,7 +1780,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
       </div>
 
       {/* CTA Banner - Shopify Style */}
-      <section className="pb-8 lg:pb-12 bg-gray-50 relative overflow-hidden">
+      <section className="pt-24 lg:pt-28 pb-8 lg:pb-12 bg-gray-50 relative overflow-hidden">
         {/* Decorative Images - Left Side */}
         <div className="absolute left-0 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-4 ml-4">
           {/* Image 1 - Haut gauche */}
