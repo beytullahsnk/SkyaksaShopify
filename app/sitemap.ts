@@ -37,7 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'tracking-ecommerce-ga4',
     'optimiser-conversion-shopify',
     'klaviyo-vs-mailchimp',
-    'meilleures-apps-shopify-2024',
+    'meilleures-apps-shopify-2026',
     'configurer-ga4-shopify',
     'reduire-abandon-panier',
     'core-web-vitals-shopify',
@@ -51,6 +51,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  return [...staticPages, ...articlePages]
+  // Pages villes
+  const villes = [
+    'paris',
+    'lyon',
+    'marseille',
+    'bordeaux',
+    'toulouse',
+    'nantes',
+    'lille',
+    'nice',
+    'orleans',
+    'tours',
+    'blois',
+  ]
+
+  const villePages = villes.map((ville) => ({
+    url: `${baseUrl}/agence-shopify/${ville}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }))
+
+  return [...staticPages, ...articlePages, ...villePages]
 }
 

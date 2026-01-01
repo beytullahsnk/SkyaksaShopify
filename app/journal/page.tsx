@@ -21,63 +21,63 @@ export default function Journal() {
       title: 'Guide SEO Shopify : optimiser votre boutique pour Google',
       excerpt: 'Structure technique, optimisation des fiches produits, Core Web Vitals : tout ce qu\'il faut savoir pour un référencement efficace sur Shopify.',
       category: 'SEO',
-      date: '15 Déc 2024',
+      date: '15 Fév 2025',
       slug: 'guide-seo-shopify',
     },
     {
       title: 'Tracking e-commerce : GA4, pixels et events',
       excerpt: 'Mettre en place un tracking solide pour mesurer les performances de votre boutique et prendre les bonnes décisions.',
       category: 'Data & Tracking',
-      date: '12 Déc 2024',
+      date: '8 Mars 2025',
       slug: 'tracking-ecommerce-ga4',
     },
     {
       title: 'Optimiser le taux de conversion de votre boutique',
       excerpt: 'Parcours utilisateur, tunnel d\'achat, fiches produits : les leviers concrets pour transformer plus de visiteurs en clients.',
       category: 'Conversion',
-      date: '10 Déc 2024',
+      date: '22 Avr 2025',
       slug: 'optimiser-conversion-shopify',
     },
     {
-      title: 'Klaviyo vs Mailchimp : quel outil pour votre boutique Shopify ?',
-      excerpt: 'Comparatif détaillé des deux solutions d\'email marketing les plus populaires pour l\'e-commerce.',
+      title: 'Klaviyo vs Mailchimp : quel outil email marketing pour Shopify ?',
+      excerpt: 'Comparatif complet Klaviyo vs Mailchimp : fonctionnalités, tarifs, intégrations, automatisations. Guide pour choisir le meilleur outil email marketing e-commerce.',
       category: 'Marketing',
-      date: '8 Déc 2024',
+      date: '12 Mai 2025',
       slug: 'klaviyo-vs-mailchimp',
     },
     {
-      title: 'Les meilleures apps Shopify en 2024',
-      excerpt: 'Sélection des applications indispensables pour booster votre boutique : conversion, marketing, logistique.',
+      title: 'Les 25 meilleures apps Shopify',
+      excerpt: 'Sélection des meilleures applications Shopify 2026 : conversion, email marketing, SEO, analytics, logistique. Apps gratuites et payantes testées.',
       category: 'Shopify',
-      date: '5 Déc 2024',
-      slug: 'meilleures-apps-shopify-2024',
+      date: '5 Juin 2025',
+      slug: 'meilleures-apps-shopify-2026',
     },
     {
       title: 'Configurer Google Analytics 4 sur Shopify',
-      excerpt: 'Guide pas à pas pour installer et configurer GA4 correctement sur votre boutique Shopify.',
+      excerpt: 'Guide complet pour installer GA4 sur Shopify : méthode native, GTM, événements e-commerce, conversions. Configuration pas à pas.',
       category: 'Data & Tracking',
-      date: '3 Déc 2024',
+      date: '18 Juil 2025',
       slug: 'configurer-ga4-shopify',
     },
     {
-      title: 'Réduire l\'abandon de panier : stratégies efficaces',
-      excerpt: 'Techniques éprouvées pour récupérer les paniers abandonnés et augmenter vos ventes.',
+      title: 'Abandon de panier Shopify : 15 stratégies pour récupérer 30% des ventes',
+      excerpt: 'Guide complet pour réduire l\'abandon de panier : statistiques 2026, causes, emails de relance, SMS, exit-intent. Récupérez 30% de vos paniers.',
       category: 'Conversion',
-      date: '1 Déc 2024',
+      date: '7 Sep 2025',
       slug: 'reduire-abandon-panier',
     },
     {
-      title: 'Optimiser les Core Web Vitals sur Shopify',
-      excerpt: 'Améliorer la performance de votre boutique pour un meilleur référencement et une meilleure expérience utilisateur.',
+      title: 'Core Web Vitals Shopify : Guide pour un score 90+',
+      excerpt: 'Guide complet pour optimiser les Core Web Vitals sur Shopify : LCP, INP, CLS. Techniques avancées, thèmes performants. Score 90+ garanti.',
       category: 'SEO',
-      date: '28 Nov 2024',
+      date: '25 Oct 2025',
       slug: 'core-web-vitals-shopify',
     },
     {
-      title: 'Créer des séquences email qui convertissent',
-      excerpt: 'Automatisations email essentielles pour accompagner vos clients et maximiser la valeur vie client.',
+      title: 'Séquences email e-commerce : 7 flows qui génèrent 30% du CA',
+      excerpt: 'Guide complet des automatisations email Shopify : Welcome, Abandon panier, Post-achat, Win-back. Templates + KPIs + Klaviyo.',
       category: 'Marketing',
-      date: '25 Nov 2024',
+      date: '10 Déc 2025',
       slug: 'sequences-email-ecommerce',
     },
   ]
@@ -107,29 +107,31 @@ export default function Journal() {
         </div>
       </section>
 
-      {/* Categories */}
-      <section className="py-8 bg-white border-b border-gray-200 sticky top-20 z-40">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="flex items-center gap-3 overflow-x-auto pb-2">
-            {categories.map((category) => (
-              <button
-                key={category.slug}
-                onClick={() => setActiveCategory(category.name)}
-                className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
-                  activeCategory === category.name
-                    ? 'bg-gray-900 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                {category.name}
-              </button>
-            ))}
+      {/* Categories + Articles Container */}
+      <div className="relative">
+        {/* Categories */}
+        <section className="py-8 bg-white border-b border-gray-200 sticky top-20 z-40">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="flex items-center gap-3 overflow-x-auto pb-2">
+              {categories.map((category) => (
+                <button
+                  key={category.slug}
+                  onClick={() => setActiveCategory(category.name)}
+                  className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
+                    activeCategory === category.name
+                      ? 'bg-gray-900 text-white'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  {category.name}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Articles */}
-      <section className="py-16 lg:py-24 bg-white">
+        {/* Articles */}
+        <section className="py-16 lg:py-24 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {articles
@@ -138,7 +140,7 @@ export default function Journal() {
               <Link
                 key={article.slug}
                 href={`/journal/${article.slug}`}
-                className="bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:border-skyaksa transition-colors group block"
+                className="bg-gray-50 border border-gray-200 rounded-2xl p-6 hover:border-skyaksa transition-colors group block h-full flex flex-col"
               >
                 <div className="mb-3">
                   <span className="text-xs font-semibold text-shopify-fluo bg-gray-900 px-3 py-1 rounded-full">
@@ -148,10 +150,10 @@ export default function Journal() {
                 <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-skyaksa transition-colors">
                   {article.title}
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">
                   {article.excerpt}
                 </p>
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between mt-auto">
                   <span className="text-xs text-gray-400">{article.date}</span>
                   <span className="text-xs font-medium text-skyaksa">Lire →</span>
                 </div>
@@ -159,7 +161,8 @@ export default function Journal() {
             ))}
           </div>
         </div>
-      </section>
+        </section>
+      </div>
 
       {/* CTA Final */}
       <section className="section-dark py-24 lg:py-32 relative overflow-hidden">
