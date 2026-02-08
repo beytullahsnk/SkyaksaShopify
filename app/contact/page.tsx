@@ -1,10 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import emailjs from '@emailjs/browser'
 import Breadcrumb from '@/components/Breadcrumb'
+import Cal, { getCalApi } from '@calcom/embed-react'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -20,6 +21,16 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
 
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({ namespace: '30min', embedJsUrl: 'https://cal.eu/embed.js' })
+      cal('ui', {
+        hideEventTypeDetails: false,
+        layout: 'month_view'
+      })
+    })()
+  }, [])
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
@@ -29,7 +40,6 @@ export default function Contact() {
     setIsSubmitting(true)
     
     try {
-      // Envoyer via EmailJS
       const templateParams = {
         from_name: `${formData.firstName} ${formData.lastName}`,
         from_email: formData.email,
@@ -48,19 +58,7 @@ export default function Contact() {
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ''
       )
 
-      // Sauvegarder aussi localement (optionnel)
-      try {
-        await fetch('/api/contact', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formData),
-        })
-      } catch (err) {
-        // Ignore si l'API locale échoue
-      }
-
       setIsSuccess(true)
-      // Reset form
       setFormData({
         firstName: '',
         lastName: '',
@@ -79,12 +77,29 @@ export default function Contact() {
     }
   }
 
+  const scrollToCalendar = () => {
+    document.getElementById('calendrier')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  }
+
+  const benefits = [
+    { icon: '🎯', title: 'Analyse de votre projet' },
+    { icon: '💡', title: 'Recommandations personnalisées' },
+    { icon: '💰', title: 'Estimation budget transparente' },
+    { icon: '🚀', title: 'Plan d\'action concret' },
+  ]
+
+  const stats = [
+    { icon: '⚡', label: '+50 projets Shopify' },
+    { icon: '👥', label: 'Réponse sous 24h' },
+    { icon: '⭐', label: 'Avis 5/5 clients' },
+    { icon: '🎯', label: 'Experts certifiés' },
+  ]
+
   return (
     <>
-      {/* Hero */}
-      <section className="pt-28 pb-8 lg:pt-36 lg:pb-12 bg-white">
+      {/* Hero Section */}
+      <section className="pt-28 pb-16 lg:pt-36 lg:pb-24 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          {/* Breadcrumb */}
           <div className="mb-8">
             <Breadcrumb
               items={[
@@ -93,39 +108,128 @@ export default function Contact() {
               ]}
             />
           </div>
+          
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4 animate-on-scroll">
-              Parlons de votre{' '}
-              <span className="text-skyaksa">projet</span>
+            <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 animate-on-scroll leading-tight">
+              Transformez votre idée en{' '}
+              <span className="text-skyaksa">boutique rentable</span>
             </h1>
-            <p className="text-lg text-gray-600 mb-6 animate-on-scroll delay-100">
-              Décrivez-nous votre projet e-commerce et recevez une réponse personnalisée.
+            <p className="text-xl text-gray-600 mb-10 animate-on-scroll delay-100">
+              Un accompagnement sur-mesure de A à Z pour lancer ou optimiser votre e-commerce Shopify
             </p>
-            <div className="flex items-center justify-center gap-4 flex-wrap animate-on-scroll delay-200">
-              <span className="inline-flex items-center gap-2 text-sm font-medium text-gray-700 bg-gray-100 px-4 py-2 rounded-full">
-                <svg className="w-4 h-4 text-shopify-fluo" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                Réponse sous 24-48h
+            
+            <button
+              onClick={scrollToCalendar}
+              className="inline-flex items-center gap-2 bg-shopify-fluo text-gray-900 font-semibold px-8 py-4 rounded-xl hover:bg-shopify-fluo/90 transition-all duration-200 shadow-lg hover:shadow-xl animate-on-scroll delay-200"
+            >
+              Réserver mon audit gratuit
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Cal.com Section - Priority */}
+      <section id="calendrier" className="py-16 lg:py-24 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="text-center mb-12 animate-on-scroll">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Parlons de votre projet
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
+              30 minutes pour comprendre vos besoins et vous donner des recommandations concrètes
+            </p>
+            
+            <div className="flex flex-wrap justify-center gap-3">
+              <span className="inline-flex items-center gap-2 text-sm font-medium text-gray-700 bg-white px-4 py-2 rounded-full border border-gray-200">
+                🔒 Sans engagement
               </span>
-              <span className="inline-flex items-center gap-2 text-sm font-medium text-gray-700 bg-gray-100 px-4 py-2 rounded-full">
-                <svg className="w-4 h-4 text-shopify-fluo" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                Audit gratuit offert
+              <span className="inline-flex items-center gap-2 text-sm font-medium text-gray-700 bg-white px-4 py-2 rounded-full border border-gray-200">
+                ⏱️ 30 minutes
               </span>
+              <span className="inline-flex items-center gap-2 text-sm font-medium text-gray-700 bg-white px-4 py-2 rounded-full border border-gray-200">
+                💬 100% gratuit
+              </span>
+            </div>
+          </div>
+
+          <div className="grid lg:grid-cols-[30%_70%] gap-8 lg:gap-12 items-center">
+            {/* Benefits */}
+            <div className="animate-on-scroll delay-100 space-y-4">
+              {benefits.map((benefit, index) => (
+                <div 
+                  key={index}
+                  className="flex items-center gap-3 p-4 bg-white rounded-xl border border-gray-200 hover:border-skyaksa transition-colors"
+                >
+                  <div className="text-2xl flex-shrink-0">{benefit.icon}</div>
+                  <h4 className="font-semibold text-gray-900">{benefit.title}</h4>
+                </div>
+              ))}
+              
+              <div className="mt-6 p-4 bg-gradient-to-r from-skyaksa/10 to-transparent rounded-xl border border-skyaksa/30">
+                <div className="flex items-start gap-3">
+                  <div className="text-2xl">⭐</div>
+                  <div>
+                    <p className="text-gray-700 italic text-sm">
+                      &quot;Un échange très pro et des conseils vraiment pertinents. J&apos;ai eu toutes les réponses à mes questions.&quot;
+                    </p>
+                    <p className="text-xs text-gray-500 mt-1">— Client après son audit</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Calendar */}
+            <div className="animate-on-scroll delay-200">
+              <div className="rounded-2xl overflow-hidden" style={{ height: '600px' }}>
+                <Cal
+                  namespace="30min"
+                  calLink="skyaksa-agency/30min"
+                  calOrigin="https://cal.eu"
+                  style={{ width: '100%', height: '100%', overflow: 'scroll' }}
+                  config={{ layout: 'month_view', useSlotsViewOnSmallScreen: 'true' }}
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Form Section */}
-      <section className="py-12 lg:py-20 bg-gray-50">
+      {/* Social Proof Stats */}
+      <section className="py-12 bg-white border-y border-gray-100">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            {stats.map((stat, index) => (
+              <div 
+                key={index}
+                className="text-center p-4 animate-on-scroll"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="text-3xl mb-2">{stat.icon}</div>
+                <p className="text-sm font-semibold text-gray-900">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Alternative - Form (Secondary) */}
+      <section className="py-16 lg:py-20 bg-white">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="text-center mb-12 animate-on-scroll">
+            <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-3">
+              Préférez nous écrire ?
+            </h2>
+            <p className="text-gray-600">
+              Envoyez-nous un message et nous vous répondrons sous 24-48h
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-            
             {/* Form */}
-            <div className="bg-white rounded-3xl p-8 lg:p-10 shadow-sm border border-gray-100 animate-on-scroll">
+            <div className="bg-gray-50 rounded-3xl p-8 lg:p-10 border border-gray-200 animate-on-scroll">
               {isSuccess ? (
                 <div className="text-center py-12">
                   <div className="w-20 h-20 bg-shopify-fluo/20 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -172,7 +276,7 @@ export default function Contact() {
                         value={formData.firstName}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-skyaksa focus:border-transparent transition-all text-gray-900 placeholder-gray-400"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-skyaksa focus:border-transparent transition-all text-gray-900 placeholder-gray-400 bg-white"
                         placeholder="Thomas"
                       />
                     </div>
@@ -187,7 +291,7 @@ export default function Contact() {
                         value={formData.lastName}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-skyaksa focus:border-transparent transition-all text-gray-900 placeholder-gray-400"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-skyaksa focus:border-transparent transition-all text-gray-900 placeholder-gray-400 bg-white"
                         placeholder="Martin"
                       />
                     </div>
@@ -204,7 +308,7 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-skyaksa focus:border-transparent transition-all text-gray-900 placeholder-gray-400"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-skyaksa focus:border-transparent transition-all text-gray-900 placeholder-gray-400 bg-white"
                       placeholder="thomas@exemple.fr"
                     />
                   </div>
@@ -219,7 +323,7 @@ export default function Contact() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-skyaksa focus:border-transparent transition-all text-gray-900 placeholder-gray-400"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-skyaksa focus:border-transparent transition-all text-gray-900 placeholder-gray-400 bg-white"
                       placeholder="+33 6 12 34 56 78"
                     />
                   </div>
@@ -254,7 +358,7 @@ export default function Contact() {
                         name="websiteUrl"
                         value={formData.websiteUrl}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-skyaksa focus:border-transparent transition-all text-gray-900 placeholder-gray-400"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-skyaksa focus:border-transparent transition-all text-gray-900 placeholder-gray-400 bg-white"
                         placeholder="https://votre-site.com"
                       />
                     </div>
@@ -292,7 +396,7 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       rows={5}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-skyaksa focus:border-transparent transition-all text-gray-900 placeholder-gray-400 resize-none"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-skyaksa focus:border-transparent transition-all text-gray-900 placeholder-gray-400 resize-none bg-white"
                       placeholder="Parlez-nous de votre projet, vos objectifs, vos besoins..."
                     />
                   </div>
@@ -338,7 +442,7 @@ export default function Contact() {
 
               {/* Reassurance Points */}
               <div className="space-y-4">
-                <div className="flex items-start gap-4 p-4 bg-white rounded-2xl border border-gray-100">
+                <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-2xl border border-gray-200">
                   <div className="w-12 h-12 rounded-xl bg-skyaksa/10 flex items-center justify-center flex-shrink-0">
                     <svg className="w-6 h-6 text-skyaksa" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -350,19 +454,9 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 p-4 bg-white rounded-2xl border border-gray-100">
-                  <div className="w-12 h-12 rounded-xl bg-shopify-fluo/20 flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Audit gratuit</h3>
-                    <p className="text-sm text-gray-600">Recevez une analyse gratuite de votre projet avec des recommandations concrètes.</p>
-                  </div>
-                </div>
 
-                <div className="flex items-start gap-4 p-4 bg-white rounded-2xl border border-gray-100">
+
+                <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-2xl border border-gray-200">
                   <div className="w-12 h-12 rounded-xl bg-skyaksa/10 flex items-center justify-center flex-shrink-0">
                     <svg className="w-6 h-6 text-skyaksa" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -407,14 +501,14 @@ export default function Contact() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-16 lg:py-24 bg-gray-50">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 text-center mb-12 animate-on-scroll">
             Questions fréquentes
           </h2>
           
           <div className="space-y-4 stagger-children">
-            <details className="group bg-gray-50 rounded-2xl animate-on-scroll">
+            <details className="group bg-white rounded-2xl border border-gray-200 animate-on-scroll">
               <summary className="flex items-center justify-between p-6 cursor-pointer list-none">
                 <span className="font-semibold text-gray-900">Comment se déroule un projet avec Skyaksa ?</span>
                 <svg className="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -426,7 +520,7 @@ export default function Contact() {
               </div>
             </details>
 
-            <details className="group bg-gray-50 rounded-2xl animate-on-scroll">
+            <details className="group bg-white rounded-2xl border border-gray-200 animate-on-scroll">
               <summary className="flex items-center justify-between p-6 cursor-pointer list-none">
                 <span className="font-semibold text-gray-900">Travaillez-vous uniquement avec Shopify ?</span>
                 <svg className="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -438,7 +532,7 @@ export default function Contact() {
               </div>
             </details>
 
-            <details className="group bg-gray-50 rounded-2xl animate-on-scroll">
+            <details className="group bg-white rounded-2xl border border-gray-200 animate-on-scroll">
               <summary className="flex items-center justify-between p-6 cursor-pointer list-none">
                 <span className="font-semibold text-gray-900">Proposez-vous un suivi après la mise en ligne ?</span>
                 <svg className="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -450,7 +544,7 @@ export default function Contact() {
               </div>
             </details>
 
-            <details className="group bg-gray-50 rounded-2xl animate-on-scroll">
+            <details className="group bg-white rounded-2xl border border-gray-200 animate-on-scroll">
               <summary className="flex items-center justify-between p-6 cursor-pointer list-none">
                 <span className="font-semibold text-gray-900">Quel est le délai moyen pour créer une boutique ?</span>
                 <svg className="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -467,4 +561,3 @@ export default function Contact() {
     </>
   )
 }
-

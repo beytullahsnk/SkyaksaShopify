@@ -4,7 +4,7 @@ import Problems from '@/components/sections/Problems'
 import Approach from '@/components/sections/Approach'
 import Method from '@/components/sections/Method'
 import Projects from '@/components/sections/Projects'
-import FinalCTA from '@/components/sections/FinalCTA'
+import CalendlyBooking from '@/components/sections/CalendlyBooking'
 import StructuredData from '@/components/StructuredData'
 
 export const metadata: Metadata = {
@@ -24,7 +24,7 @@ export default function Home() {
       <Approach />
       <Method />
       <Projects />
-      <FinalCTA />
+      <CalendlyBooking />
     </>
   )
 }
