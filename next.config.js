@@ -16,6 +16,17 @@ const nextConfig = {
   // Power by header (désactivé pour la sécurité)
   poweredByHeader: false,
 
+  // Redirections (anciennes URLs 404)
+  async redirects() {
+    return [
+      {
+        source: '/index.html',
+        destination: '/',
+        permanent: true,
+      },
+    ]
+  },
+
   // Security Headers
   async headers() {
     return [
